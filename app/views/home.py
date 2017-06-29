@@ -8,7 +8,7 @@ def index():
     try:
         # Query
         cur = db.connection.cursor()
-        query = ''' SELECT id, title, cover FROM book ORDER BY year LIMIT 8'''
+        query = ''' SELECT id, title, cover, year FROM book ORDER BY year DESC LIMIT 8'''
         cur.execute(query)
         rows = cur.fetchall();
         books = []
@@ -16,7 +16,8 @@ def index():
             books.append({
                 'id': row[0],
                 'title': row[1],
-                'cover': row[2]
+                'cover': row[2],
+                'year': row[3]
                 })
         return render_template('index.html', books=books)
     except Exception as e:

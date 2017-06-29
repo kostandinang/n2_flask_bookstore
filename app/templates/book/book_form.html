@@ -17,7 +17,13 @@
         
             <!-- Content -->
             <div class="row">
-                <form class="form-group col-lg-6">
+                {% if error %}
+                <div class="alert alert-danger">
+                    <strong>Error</strong> <br/>
+                    {{error}}
+                </div>
+                {% endif %}
+                <form method="post" class="form-group col-lg-6">
                     <fieldset>
                         <legend>Enter details</legend>
                         <div class="form-group">
@@ -30,13 +36,29 @@
                         </div>
                         <div class="form-group">
                             <label for="year">Year:</label>
-                            <input type="datetime" class="form-control" name="isbn">
+                            <input type="datetime" class="form-control" name="year">
                         </div>
                         <div class="form-group">
                             <label for="cover">Cover (Paste an image url):</label>
                             <input type="text" class="form-control" name="cover">
                         </div>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <div class="form-group">
+                            <label for="author">Author:</label>
+                            <select name="author" class="form-control">
+                                {% for author in authors %}
+                                    <option value="{{author.id}}">{{author.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="publisher">Publisher:</label>
+                            <select name="publisher" class="form-control">
+                                {% for publisher in publishers %}
+                                    <option value="{{publisher.id}}">{{publisher.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Add Book</button>
                     </fieldset>
                 </form>
             </div>
