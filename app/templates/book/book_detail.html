@@ -1,0 +1,61 @@
+{% extends "partials/base.html" %}
+{% block content %}
+    
+    {% if book %}
+    <div class="col col-lg-12">
+        <div class="row">
+            <h2> Details for <b>{{book.title}}</b> </h2>
+            <div class="top-actions">
+                <a href="/books/">View All books</a>
+            </div>
+            <br/>
+        </div>
+            <!-- Content -->
+            <div class="row">
+                {% if book.cover %}
+                    <div class="col col-lg-4">
+                        <div class="row">
+                            <img src="{{book.cover}}"/>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="col-lg-8">
+                    <h3 class="row">Details</h3>
+                    <table class="row table">
+                        <thead>
+                            <tr>
+                                <th width="200"></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td><b>Id</b></td>
+                            <td>{{book.id}}</td>
+                            </tr>   
+                            <tr>
+                                <td><b>Title</b></td>
+                                <td>{{book.title}}</td>
+                            </tr>   
+                            <tr>
+                                <td><b>Isbn</b></td>
+                                <td>{{book.isbn}}</td>
+                            </tr>   
+                            <tr>
+                                <td><b>Year</b></td>
+                                <td>{{book.year}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>Author</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        {% with name="Book" %}    
+            {% include "partials/empty.html" %}    
+        {% endwith %}    
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+body {
+    color: red;
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.main {
+
+}
+
+.main i {
+    font-size: 100px;
+}
+
+.main p {
+    font-size: 20px;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.navbar-nav i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.footer {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.empty {
+    text-align: center;
+    color: #555;
+}
+
+.empty i {
+    font-size: 100px;
+}

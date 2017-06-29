@@ -1,0 +1,46 @@
+{% extends "partials/base.html" %}
+{% block content %}
+    <div class="col col-lg-12">
+        <div class="row">
+            <h1> Add a book </h1>
+            <div class="top-actions">
+                <p>
+                    Add an 
+                    <a href="/authors/add">author</a>
+                    or
+                    <a href="/publishers/add">publisher</a>
+                    |
+                    <a href="/books">View Books</a>
+                </p>
+            </div>
+            <br/>
+        
+            <!-- Content -->
+            <div class="row">
+                <form class="form-group col-lg-6">
+                    <fieldset>
+                        <legend>Enter details</legend>
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <input type="text" class="form-control" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="isbn">Isbn:</label>
+                            <input type="text" class="form-control" name="isbn">
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year:</label>
+                            <input type="datetime" class="form-control" name="isbn">
+                        </div>
+                        <div class="form-group">
+                            <label for="cover">Cover (Paste an image url):</label>
+                            <input type="text" class="form-control" name="cover">
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

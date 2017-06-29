@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'partials/header.html' %}
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/"><i class="fa fa-home"></i>Home</a>
+                </li>
+                <li>
+                    <a href="/books"><i class="fa fa-book"></i>Books</a>
+                </li>
+                <li>
+                    <a href="/authors"><i class="fa fa-users"></i>Authors</a>
+                </li>
+                <li>
+                    <a href="/publishers"><i class="fa fa-bank"></i>Publishers</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="content" class="container">{% block content %}{% endblock %}</div>
+    {% include 'partials/footer.html' %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

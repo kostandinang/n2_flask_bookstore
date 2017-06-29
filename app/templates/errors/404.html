@@ -1,0 +1,9 @@
+{% extends "partials/base.html" %}
+{% block content %}
+    <div class="error-message center">
+        <h1> 404 </h1>
+        <p>Page not found</p>
+        <pre>{{ err }}</pre>
+        <p><a href="{{ url_for('index') }}">Return to home</a>
+    </div>
+{% endblock %}
