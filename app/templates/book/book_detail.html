@@ -45,9 +45,20 @@
                                 <td><b>Year</b></td>
                                 <td>{{book.year}}</td>
                             </tr>
+                            {% if book.author %}
+                            <tr>
+                                <td><b>Author</b></td>
+                                <td><a href="/authors/{{book.author.id}}">{{book.author.name}}</a></td>
+                            </tr>
+                            {% endif %}
+                            {% if book.publisher %}
+                            <tr>
+                                <td><b>Publisher</b></td>
+                                <td><a href="/publishers/{{book.publisher.id}}">{{book.publisher.name}}</a></td>
+                            </tr>
+                            {% endif %}
                         </tbody>
                     </table>
-                    <h3>Author</h3>
                 </div>
             </div>
         </div>

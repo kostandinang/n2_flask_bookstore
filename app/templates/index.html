@@ -1,11 +1,27 @@
 {% extends "partials/base.html" %}
 {% block content %}
     <div class="main center">
+        <a href="/books">View All books</a>
+        <hr/>
+        {% if books %}
+        <div class="container home-books">
+            <div class="row">
+                {% for book in books %}
+                <div class="col-lg-3">
+                    <a href="/books/{{book.id}}">
+                        <img height="200" src="{{book.cover}}"/>
+                        <br/>
+                        <h3>{{book.title}}</h3>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
         <h1 >
             <i class="fa fa-book"></i>
         </h1>
         <p> Welcome to N2's Bookstore </p>
-        <a href="/books">View books</a>
+        {% endif %}
     </div>
-
 {% endblock %}

@@ -39,3 +39,16 @@ body {
 .empty i {
     font-size: 100px;
 }
+
+.home-books {
+    text-align: center
+}
+
+.home-books h3 {
+    height: 30px;
+    font-size: 15px;
+}
+
+.home-books .col-lg-3 {
+    margin-top: 20px;
+}

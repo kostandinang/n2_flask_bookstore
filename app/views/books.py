@@ -17,7 +17,7 @@ def list():
             title = request.args.get('title') or None
             # Query
             cur = db.connection.cursor()
-            query = ''' SELECT * FROM book WHERE (%s IS NULL OR TITLE = %s)'''
+            query = ''' SELECT * FROM book WHERE (%s IS NULL OR title = %s)'''
             cur.execute(query, [title, title])
             rows = cur.fetchall();
             books = []
@@ -66,7 +66,10 @@ def actions(id=None):
         try:
             # Query
             cur = db.connection.cursor()
-            query = ''' SELECT * FROM book WHERE (ID = %s)''' % id
+            query = ''' SELECT book.id, book.title, book.isbn, book.year, book.cover, book.author, author.name, book.publisher, publisher.name FROM book 
+            INNER JOIN author ON book.author = author.id 
+            INNER JOIN publisher ON publisher = publisher.id 
+            WHERE (book.id = %s)''' % id
             cur.execute(query)
             row = cur.fetchone();
             book = None
@@ -76,7 +79,15 @@ def actions(id=None):
                     'title': row[1],
                     'isbn': row[2],
                     'year': row[3],
-                    'cover': row[4]
+                    'cover': row[4],
+                    'author': {
+                        'id': row[5],
+                        'name': row[6]
+                    },
+                    'publisher': {
+                        'id': row[7],
+                        'name': row[8]
+                    }
                 }
             return render_template('book/book_detail.html', book=book)
         except Exception as e:

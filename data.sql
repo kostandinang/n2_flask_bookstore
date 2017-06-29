@@ -56,13 +56,15 @@ CREATE TABLE IF NOT EXISTS `book` (
   CONSTRAINT `book_publisher` FOREIGN KEY (`publisher`) REFERENCES `publisher` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Dumping data for table n2_bookstore.book: ~0 rows (approximately)
+-- Dumping data for table n2_bookstore.book: ~3 rows (approximately)
 DELETE FROM `book`;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
 INSERT INTO `book` (`id`, `title`, `isbn`, `year`, `cover`, `author`, `publisher`) VALUES
 	(1, 'Inferno', '978-0-385-53785-8', '2013', 'https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Inferno-cover.jpg/200px-Inferno-cover.jpg', 3, 1),
 	(2, 'The Lost Symbol', '978-0-385-50422-5', '2009', 'https://upload.wikimedia.org/wikipedia/en/0/07/LostSymbol.jpg', 3, 1),
-	(3, 'The Davinci Code', '0-385-50420-9', '2003', 'https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/DaVinciCode.jpg/220px-DaVinciCode.jpg', 3, 1);
+	(3, 'The Davinci Code', '0-385-50420-9', '2003', 'https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/DaVinciCode.jpg/220px-DaVinciCode.jpg', 3, 1),
+	(4, 'Harry Potter and the Prisoner of Azkaban', '0-7475-4215-5', '1999', 'https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg', 1, 2),
+	(5, 'Fantastic Beasts and Where to Find Them', '1-8508-2321-5', '2001', 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Fantastic_beasts.JPG/220px-Fantastic_beasts.JPG', 1, 2);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 
 -- Dumping structure for table n2_bookstore.publisher
@@ -76,13 +78,14 @@ CREATE TABLE IF NOT EXISTS `publisher` (
   `email` varchar(128) NOT NULL DEFAULT '0',
   `web` varchar(2048) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table n2_bookstore.publisher: ~0 rows (approximately)
 DELETE FROM `publisher`;
 /*!40000 ALTER TABLE `publisher` DISABLE KEYS */;
 INSERT INTO `publisher` (`id`, `name`, `address`, `country`, `phone_number`, `email`, `web`) VALUES
-	(1, 'DoubleDay', 'New York City', 'New York', '1-800-815-9387', 'info@doubleday.knopfdoubleday.com', 'doubleday.knopfdoubleday.com');
+	(1, 'DoubleDay', 'New York City', 'New York', '1-800-815-9387', 'info@doubleday.knopfdoubleday.com', 'http://doubleday.knopfdoubleday.com'),
+	(2, 'Bloomsburry', 'London', 'United Kingdom', '5-200-333-222', 'info@bloomsburry.com', 'http://bloomsburry.com');
 /*!40000 ALTER TABLE `publisher` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

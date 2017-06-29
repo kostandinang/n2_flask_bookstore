@@ -10,8 +10,8 @@ from logging import Formatter, FileHandler
 app = Flask(
     '__name__',
     static_url_path='/static',
-    static_folder='/home/kostandinang/n2_flask_bookstore/app/static/',
-    template_folder='/home/kostandinang/n2_flask_bookstore/app/templates/'
+    static_folder='app/static/',
+    template_folder='app/templates/'
 )
 app.config.from_object('app.config')
 
@@ -22,17 +22,11 @@ app.config.from_object('app.config')
 from app.views.books import books
 from app.views.authors import authors
 from app.views.publishers import publishers
+from app.views.home import home
 app.register_blueprint(books, url_prefix='/books')
 app.register_blueprint(authors, url_prefix='/authors')
 app.register_blueprint(publishers, url_prefix='/publishers')
-
-# ---------------------------------------------------------------------- #
-# Default route
-# ---------------------------------------------------------------------- #
-
-@app.route('/')
-def index():
-    return render_template('index.html')
+app.register_blueprint(home, url_prefix='/')
 
 # ---------------------------------------------------------------------- #
 # Errors
