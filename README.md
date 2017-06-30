@@ -22,6 +22,19 @@ pip install --user flask-mysqldb
 ## Configuration
 After you have successfuly installed the app and its libraries change database configuration to use the connection from PythonAnywhere environment
 
+- Go to web section - code and click on /var/www/kostandinang_pythonanywhere_com_wsgi.py
+- Change project_home to:
+
+```
+u'/home/user/n2_flask_bookstore'
+```
+where user is your PythonAnywhere username
+- Change the last line to:
+
+```
+from server import app as application
+```
+
 - Change /home/**user**/n2_flask_bookstore/app/config.py MYSQL_* config values using the values from
 https://www.pythonanywhere.com/user/**user**/databases/ (where **user** is your PythonAnywhere username)
 
