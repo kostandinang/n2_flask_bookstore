@@ -10,8 +10,8 @@ from logging import Formatter, FileHandler
 app = Flask(
     '__name__',
     static_url_path='/static',
-    static_folder='/home/kostandinang/n2_flask_bookstore/app/static/',
-    template_folder='/home/kostandinang/n2_flask_bookstore/app/templates/'
+    static_folder='/home/n2chasers/n2_flask_bookstore/app/static/',
+    template_folder='/home/n2chasers/n2_flask_bookstore/app/templates/'
 )
 app.config.from_object('app.config')
 
